@@ -62,7 +62,7 @@ fn main() {
 
     let stdout_istty = io::stdout().is_terminal();
     let mut input = String::new();
-    let cli = Opts::parse();
+    let cli = Opts::parse_from(wild::args_os());
     let mut input_paths: Vec<&OsStr> = cli.paths.iter().map(OsString::as_os_str).collect();
     let options = match Options::deduce(&cli, &LiveVars) {
         Ok(c) => c,
